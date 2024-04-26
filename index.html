@@ -1,21 +1,185 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome</title>
-</head>
-<body>
-  <h1>Click the button to continue</h1>
-</body>
-</html>
+/**
+ * v0 by Vercel.
+ * @see https://v0.dev/t/T5udQUElDOu
+ * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
+ */
+import { Button } from "@/components/ui/button"
+import { Checkbox } from "@/components/ui/checkbox"
 
-<script async
-  src="https://js.stripe.com/v3/buy-button.js">
-</script>
+export default function Component() {
+  return (
+    <div className="bg-[#fddedf] flex flex-col items-center justify-center p-4">
+      <div className="flex justify-between w-full max-w-md">
+        <div className="flex space-x-4">
+          <button aria-label="Oolong Milk Tea" type="button">
+            <img
+              alt="Oolong Milk Tea"
+              className="w-24 h-24 object-cover"
+              height="100"
+              src="/placeholder.svg"
+              style={{
+                aspectRatio: "100/100",
+                objectFit: "cover",
+              }}
+              width="100"
+            />
+          </button>
+          <button aria-label="Black Milk Tea" type="button">
+            <img
+              alt="Black Milk Tea"
+              className="w-24 h-24 object-cover"
+              height="100"
+              src="/placeholder.svg"
+              style={{
+                aspectRatio: "100/100",
+                objectFit: "cover",
+              }}
+              width="100"
+            />
+          </button>
+        </div>
+        <div className="relative">
+          <ShoppingCartIcon className="w-6 h-6" />
+          <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-[#ff6f61] rounded-full">
+            2
+          </span>
+        </div>
+      </div>
+      <div className="mt-6 grid gap-6 w-full max-w-md">
+        <div className="bg-white rounded-lg p-4 shadow-md">
+          <div className="flex justify-between">
+            <span className="font-semibold">Order 1</span>
+            <TrashIcon className="w-4 h-4" />
+          </div>
+          <div className="mt-2">
+            <div className="flex justify-between">
+              <div className="flex space-x-1">
+                <Button className="text-xs" variant="outline">
+                  0%
+                </Button>
+                <Button className="text-xs" variant="outline">
+                  50%
+                </Button>
+                <Button className="text-xs" variant="outline">
+                  100%
+                </Button>
+              </div>
+              <div className="flex space-x-2">
+                <Checkbox id="agar-boba-1" />
+                <label className="text-sm" htmlFor="agar-boba-1">
+                  Agar Boba
+                </label>
+                <Checkbox id="coconut-jelly-1" />
+                <label className="text-sm" htmlFor="coconut-jelly-1">
+                  Coconut Jelly
+                </label>
+              </div>
+            </div>
+            <div className="mt-2 flex justify-between items-center">
+              <span>Toppings</span>
+              <div className="flex items-center">
+                <Button className="text-xs" variant="outline">
+                  -
+                </Button>
+                <span className="mx-2">1</span>
+                <Button className="text-xs" variant="outline">
+                  +
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white rounded-lg p-4 shadow-md">
+          <div className="flex justify-between">
+            <span className="font-semibold">Order 2</span>
+            <TrashIcon className="w-4 h-4" />
+          </div>
+          <div className="mt-2">
+            <div className="flex justify-between">
+              <div className="flex space-x-1">
+                <Button className="text-xs" variant="outline">
+                  0%
+                </Button>
+                <Button className="text-xs" variant="outline">
+                  50%
+                </Button>
+                <Button className="text-xs" variant="outline">
+                  100%
+                </Button>
+              </div>
+              <div className="flex space-x-2">
+                <Checkbox id="agar-boba-2" />
+                <label className="text-sm" htmlFor="agar-boba-2">
+                  Agar Boba
+                </label>
+                <Checkbox id="coconut-jelly-2" />
+                <label className="text-sm" htmlFor="coconut-jelly-2">
+                  Coconut Jelly
+                </label>
+              </div>
+            </div>
+            <div className="mt-2 flex justify-between items-center">
+              <span>Toppings</span>
+              <div className="flex items-center">
+                <Button className="text-xs" variant="outline">
+                  -
+                </Button>
+                <span className="mx-2">2</span>
+                <Button className="text-xs" variant="outline">
+                  +
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="flex justify-between items-center w-full max-w-md mt-4">
+        <span className="font-semibold text-lg">Total Price: $9</span>
+        <Button>Pay Now</Button>
+      </div>
+    </div>
+  )
+}
 
-<stripe-buy-button
-  buy-button-id="buy_btn_1P9gHmRucLwkGA6EPmCYNelQ"
-  publishable-key="pk_live_51P9fh0RucLwkGA6EG3iGonbKckeNKrCbW3kTVk5KRGgtUgYIMzq2BLCszoHHyWzZ37wd5a86oOZ4Ne0PBgpX4XKc00CW2vymDU"
->
-</stripe-buy-button>
+function ShoppingCartIcon(props) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="8" cy="21" r="1" />
+      <circle cx="19" cy="21" r="1" />
+      <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+    </svg>
+  )
+}
+
+
+function TrashIcon(props) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M3 6h18" />
+      <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+      <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+    </svg>
+  )
+}
